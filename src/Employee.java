@@ -1,27 +1,19 @@
 public class Employee {
-    private String NFT;
+    private String fio;
     private int department;
-    private int salary;
-    private int counter;
-    private static int id;
+    private double salary;
+    private int id;
+    private static int counter;
 
-    public Employee(String NFT,int department,int salary) {
-        this.NFT=NFT;
+    public Employee(String fio,int department,double salary) {
+        this.fio=fio;
         this.department=department;
         this.salary=salary;
-        counter = id++;
+        id = counter++;
     }
 
-    public static int getNumOfInstances() {
-        return id;
-    }
-
-    public String getNFT() {
-        return NFT;
-    }
-
-    public void setNFT(String NFT) {
-        this.NFT = NFT;
+    public String getFio() {
+        return fio;
     }
 
     public int getDepartment() {
@@ -32,18 +24,18 @@ public class Employee {
         this.department = department;
     }
 
-    public int getSalary() {
+    public double getSalary() {
         return salary;
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(double salary) {
         this.salary = salary;
     }
 
 
     @Override
     public String toString() {
-        return "ФИО: "+NFT +", Отдел сотрудник - "+ department +", Зарплата сотрудника = "+salary +", id= "+counter+"\n";
+        return "ФИО: "+fio +", Отдел сотрудник - "+ department +", Зарплата сотрудника = "+salary +", id= "+id+"\n";
     }
 }
 
