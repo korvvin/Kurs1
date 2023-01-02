@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 public class Main {
-    static Employee[] employeeArray = new Employee[10];
+    private static Employee[] employeeArray = new Employee[10];
     public static void main(String[] args) {
         employeeArray[0] = new Employee("Зыкова Татьяна Александровна", 1, 105000.5);
         employeeArray[1] = new Employee("Александрова Юлия Федоровна", 4, 45000);
@@ -14,11 +14,10 @@ public class Main {
         employeeArray[8] = new Employee("Цилин Евгений Александрович", 2, 70000);
         employeeArray[9] = new Employee("Оганисян Карина Мушеговна", 3, 60000);
         list();
-        double maxSum = sum();
-        System.out.println("Сумма всех зарплат = "+maxSum);
-        System.out.println("Меньше всех зарабатывает " +min(maxSum));
+        System.out.println("Сумма всех зарплат = "+sum());
+        System.out.println("Меньше всех зарабатывает " +min());
         System.out.println("Больше всех зарабатывае "+ max());
-        System.out.println(midlSalary(maxSum));
+        System.out.println("Средняя зп по сотрудникам: "+midlSalary());
         fio();
     }
     public static void list(){
@@ -33,31 +32,31 @@ public class Main {
         }
         return sum;
     }
-    public static String min (double maxSum){
-        double min = maxSum;
-        String name = " ";
+    public static Employee min (){
+        double min = sum();
+        int count = 0;
         for (int i = 0; i < employeeArray.length; i++){
             if(min>employeeArray[i].getSalary()){
                 min = employeeArray[i].getSalary();
-                name = employeeArray[i].getFio();
+                count=i;
             }
         }
-        return name;
+        return employeeArray[count];
     }
-    public static String max (){
+    public static Employee max (){
         double max = 0 ;
-        String name = "";
+        int count = 0;
         for (int i = 0; i < employeeArray.length; i++) {
             if(max<employeeArray[i].getSalary()){
                 max=employeeArray[i].getSalary();
-                name = employeeArray[i].getFio();
+                count=i;
             }
         }
-        return name;
+        return employeeArray[count];
     }
-    public static double midlSalary(double maxSum){
-        double midlSalary = 0.0;
-        midlSalary=maxSum/ employeeArray.length;
+    public static double midlSalary(){
+        double midlSalary = 0;
+        midlSalary=sum()/ employeeArray.length;
     return midlSalary;
     }
     public static void fio(){
